@@ -1,5 +1,10 @@
 function goodButton(response) {
-    console.log(`success`);
+    let data= response.data.message;
+    for (let post of data){
+        console.log(post);
+        document.body.style.backgroundColor = `aqua`;
+        document.body.insertAdjacentHTML(`afterend`,`<img src=${post}>`);
+    }
 }
 
 function badButton(error) {
@@ -7,6 +12,10 @@ function badButton(error) {
     console.log("failure");
 }
 
+function search() {
 axios.request({
-    url : "https://api.disneyapi.dev/characters"
-}).then(goodButton).catch(badButton);
+    url : "https://dog.ceo/api/breeds/image/random/2"
+}).then(goodButton).catch(badButton)
+}
+
+document.getElementById(`button`).addEventListener(`click`,search);
