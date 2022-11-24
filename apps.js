@@ -1,5 +1,5 @@
 function goodButton(response) {
-    
+    console.log(`success`);
 }
 
 function badButton(error) {
